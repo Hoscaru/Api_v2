@@ -2,6 +2,7 @@ from rest_framework import generics, permissions
 from .models import post
 from .serializers import postSerializer
 from .permissions import IsAuthorOrReadOnly
+from .permissions import IsAdminUser
 
 # Create your views here.
 class postList(generics.ListCreateAPIView):

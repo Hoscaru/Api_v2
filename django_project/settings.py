@@ -41,13 +41,14 @@ INSTALLED_APPS = [
     'posts',
     #3rt party
     'corsheaders',
-    'django.contrib.sites', # New
-    'allauth',# New
-    'allauth.account',# New
-    'allauth.socialaccount',# New
-    'dj_rest_auth',# New
-    'dj_rest_auth.registration',# New
-    'rest_framework.authtoken',# New
+    'django.contrib.sites', 
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+    'rest_framework.authtoken',
+    'drf_spectacular',
     
 
 ]
@@ -56,8 +57,14 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Blog API',
+    'DESCRIPTION': 'API for blog posts',
+    'VERSION': '1.0.0',
+}
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
